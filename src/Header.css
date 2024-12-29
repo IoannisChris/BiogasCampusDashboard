@@ -19,7 +19,7 @@
   .logo-image {
     height: 100px;
     width: auto;
-    border-radius: 10px;
+    border-radius: 50px;
     border: 2px solid #ddd;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
@@ -218,3 +218,188 @@
     line-height: 1.5;
   }
   
+
+  /*
+Login css
+*/
+
+  .login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Περισσότερο βάθος στη σκιά */
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  button.forgot-password {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  .error-message {
+    color: red;
+    margin-bottom: 15px;
+  }
+  
+
+
+
+
+
+
+  /* Βασικό styling για τη σελίδα */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.login-page {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: url('./assets/images/bi.webp') no-repeat center center;
+  background-size: cover; /* Η εικόνα φόντου γεμίζει όλη τη σελίδα */
+}
+
+/* Styling του header */
+.header {
+  width: 100%;
+  padding: 20px 0;
+  background-color: rgba(255, 255, 255, 0.9); /* Ελαφρώς διάφανο λευκό */
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+/* Ρυθμίσεις για το login form */
+.login-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.9); /* Ελαφρώς διάφανο λευκό φόντο */
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Εφέ σκιάς */
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Styling για τα πεδία φόρμας */
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Κουμπιά της φόρμας */
+.form-actions {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.forgot-password {
+  background-color: #6c757d;
+  margin-left: 10px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Μήνυμα σφάλματος */
+.error-message {
+  color: #d9534f;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
