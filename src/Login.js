@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import React Router's useNavigate
 import logoImage from './assets/images/images.png';
-import image4 from './assets/images/bi.webp';
-
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,6 +17,7 @@ const Login = () => {
     }
     setError("");
     alert(`Welcome, ${username}!`);
+    navigate("/Main"); // Redirect to /Main after successful login
   };
 
   return (

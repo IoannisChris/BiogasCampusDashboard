@@ -403,3 +403,209 @@ button:hover {
   margin-bottom: 10px;
   font-size: 14px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.dashboard {
+  width: 100%;
+  max-width: 800px;
+}
+
+.data-section {
+  margin-bottom: 20px;
+}
+
+.data-cards {
+  display: flex;
+  justify-content: space-around;
+}
+
+.data-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.admin-panel {
+  background: #eef5ff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.sustainability-info {
+  text-align: center;
+  background: #dff0d8;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.app-footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-admin {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-admin:hover {
+  background: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* AdminPanel.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+.admin-header h1 {
+  margin: 0;
+}
+
+.btn-logout {
+  padding: 10px 20px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-logout:hover {
+  background-color: #e60000;
+}
+
+.admin-main {
+  width: 100%;
+  max-width: 800px;
+}
+
+.system-health, .maintenance-alerts, .user-management {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ενισχυμένη σκιά */
+}
+
+.status {
+  color: green;
+}
+
+.date {
+  font-weight: bold;
+}
+
+.btn-manage-users {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-manage-users:hover {
+  background-color: #0056b3;
+}
+
+.admin-footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.data-visualization {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.unit-customization {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
