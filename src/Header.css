@@ -32,13 +32,13 @@
   .logo-text h1 {
     font-size: 1.5rem;
     margin: 0;
-    color: #333;
+    color: #f0e5e5;
   }
   
   .logo-text h2 {
     font-size: 1.2rem;
     margin: 5px 0 0;
-    color: #666;
+    color: #f6f2f2;
   }
   
   .nav {
@@ -52,7 +52,7 @@
   }
   
   .nav-links li a {
-    color: #333;
+    color: #ece6e6;
     text-decoration: none;
     font-size: 2rem;
     transition: color 0.3s;
@@ -95,7 +95,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #ffffff; /* Λευκό φόντο */
+    background: linear-gradient(135deg, #4bae24, #2c3e50);
     color: #333;
   }
   
@@ -533,6 +533,65 @@ body {
   background: #0056b3;
 }
 
+.contact-section {
+  background: #fffbea; /* Παρόμοιο φόντο με το Educational Content */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ενισχυμένη σκιά */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 1.8em;
+  color: #856404; /* Ταιριάζει με το Educational Content */
+}
+
+.contact-section p {
+  font-size: 1.2em;
+  color: #6c757d; /* Εναρμονίζεται με το υπόλοιπο στυλ */
+}
+
+.btn-contact {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #007bff; /* Παρόμοιο με το Admin Button */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-contact:hover {
+  background: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -863,7 +922,7 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(135deg, #34495e, #2c3e50);
+  background: linear-gradient(135deg, #4bae24, #2c3e50);
   padding: 20px 40px;
   color: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -924,45 +983,30 @@ ul {
 
 
 
+/* Contact Us Form Styles */
 
 
 
-
-
-
-
-/* ContactUs.css */
-
-.contact-us-page {
-  padding: 40px;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.contact-us-page h1 {
-  font-size: 2.5em;
+.login-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  width: 90%;
+  margin: 20px auto;
+  margin-top: 100px; /* Προστέθηκε για να απομακρυνθεί από το AppBar */
   color: #2c3e50;
-  margin-bottom: 10px;
 }
 
-.contact-us-page p {
-  font-size: 1.2em;
-  color: #7f8c8d;
-  margin-bottom: 30px;
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .contact-form {
-  width: 100%;
-  max-width: 600px;
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .form-group {
@@ -970,21 +1014,20 @@ ul {
 }
 
 .form-group label {
-  display: block;
   font-size: 1em;
-  color: #34495e;
   margin-bottom: 5px;
+  display: block;
+  color: #2c3e50;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
   padding: 10px;
-  font-size: 1em;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #f9f9f9;
-  transition: border-color 0.3s ease;
+  font-size: 1em;
+  color: #2c3e50;
 }
 
 .form-group input:focus,
@@ -994,36 +1037,29 @@ ul {
 }
 
 .btn-submit {
+  padding: 10px 20px;
   background-color: #007bff;
   color: white;
-  font-size: 1.2em;
-  padding: 10px 20px;
   border: none;
   border-radius: 5px;
+  font-size: 1.2em;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease;
 }
 
 .btn-submit:hover {
   background-color: #0056b3;
-  transform: scale(1.05);
-}
-
-.btn-submit:active {
-  background-color: #003d80;
 }
 
 .thank-you {
   text-align: center;
+  color: #2c3e50;
 }
 
 .thank-you h2 {
-  font-size: 2em;
-  color: #27ae60;
   margin-bottom: 10px;
 }
 
 .thank-you p {
-  font-size: 1.2em;
-  color: #34495e;
+  color: #7f8c8d;
 }

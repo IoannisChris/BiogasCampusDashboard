@@ -1,34 +1,30 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import logoImage from "./assets/images/images.png";
 
 
 const QuizPage = () => {
-  const AppBar = () => {
-    return (
-      <nav className="app-bar">
-        <div className="app-bar-logo">
-          <Link to="/" className="logo-link">Biogas Dashboard</Link>
-        </div>
-        <ul className="app-bar-links">
-          <li>
-            <Link to="/Main">Home</Link>
-          </li>
-          <li>
-            <Link to="/admin">Admin Panel</Link>
-          </li>
-          <li>
-            <Link to="/educational-tools">Educational Tools</Link>
-          </li>
-          <li>
-            <Link to="/quiz">Quiz</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        </ul>
-      </nav>
-    );
-  };
+    const AppBar = () => {
+        return (
+          <header className="app-bar">
+            <div className="logo-container">
+              <img src={logoImage} alt="Λογότυπο" className="logo-image" />
+              <div className="logo-text">
+                <h1>Campus Farm Waste-to-Energy</h1>
+                <h2>Biogas System Dashboard</h2>
+              </div>
+            </div>
+            <nav className="nav">
+              <ul className="nav-links">
+                <li><Link to="/">Home</Link></li>
+       
+          
+                <li><Link to="/contact">Επικοινωνία</Link></li>
+              </ul>
+            </nav>
+          </header>
+        );
+      };
 
   const questions = [
     {

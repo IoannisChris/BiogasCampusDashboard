@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import React Router's useNavigate
 import logoImage from './assets/images/images.png';
+import { Link } from "react-router-dom";
+
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -24,14 +26,21 @@ const Login = () => {
     <div className="login-page">
       {/* Header */}
       <header className="header">
-        <div className="logo-container">
-          <img src={logoImage} alt="Λογότυπο" className="logo-image" />
-          <div className="logo-text">
-            <h1>Campus Farm Waste-to-Energy</h1>
-            <h2>Biogas System Dashboard</h2>
-          </div>
+      <div className="logo-container">
+        <img src={logoImage} alt="Λογότυπο" className="logo-image" />
+        <div className="logo-text">
+          <h1>Campus Farm Waste-to-Energy</h1>
+          <h2>Biogas System Dashboard</h2>
         </div>
-      </header>
+      </div>
+      <nav className="nav">
+        <ul className="nav-links">
+          <li><Link to="/">Home</Link></li>
+       
+          <li><Link to="/contact">Επικοινωνία</Link></li>
+        </ul>
+      </nav>
+    </header>
 
       {/* Login Form */}
       <div className="login-container">
