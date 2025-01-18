@@ -39,6 +39,11 @@ const AdminPanel = () => {
     navigate("/");
   };
 
+  // Νέα λειτουργία για πλοήγηση στη σελίδα User Management
+  const handleManageUsersClick = () => {
+    navigate("/user-management"); // Πλοήγηση στη διαδρομή User Management
+  };
+
   return (
     <div className="admin-container">
       <header className="admin-header">
@@ -103,7 +108,9 @@ const AdminPanel = () => {
           <p>
             Total Users: <span className="user-count">10</span>
           </p>
-          <button className="btn-manage-users">Manage Users</button>
+          <button className="btn-manage-users" onClick={handleManageUsersClick}>
+            Manage Users
+          </button>
         </section>
       </main>
 
