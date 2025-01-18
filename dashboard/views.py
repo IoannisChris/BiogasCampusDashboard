@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from .strategy import SumStrategy, AverageStrategy
 from .observer import Observable, Logger, Notifier
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 def handle_data(request, type):
     data = request.GET.get('data', 'default_data')
@@ -18,6 +19,7 @@ def config_view(request):
     config.set('api_key', '12345')  # Example
     return JsonResponse({"api_key": config.get('api_key')})
 
+@csrf_exempt
 def calculate_view(request):
     data = [int(x) for x in request.GET.get('data', '1,2,3').split(',')]
     strategy_type = request.GET.get('strategy', 'sum')
@@ -32,6 +34,7 @@ def calculate_view(request):
     result = strategy.calculate(data)
     return JsonResponse({"result": result})
 
+@csrf_exempt
 def health_update_view(request):
     observable = Observable()
     observable.register_observer(Logger())
@@ -40,7 +43,7 @@ def health_update_view(request):
     data = "System health updated!"
     observable.notify_observers(data)
 
-    return JsonResponse({"message": "Observers notified"})
+    return JsonResponse({"status": "Healthy"})
 
 def config_view(request):
     return JsonResponse({"message": "This is the config endpoint"})
