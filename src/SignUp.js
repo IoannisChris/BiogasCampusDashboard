@@ -3,42 +3,42 @@ import { useNavigate } from "react-router-dom";
 import logoImage from './assets/images/images.png';
 import { Link } from "react-router-dom";
 
-const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+const SignUp = () => {
+  const [formData, setFormData] = useState({ username: '', email: '', password: '' });
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!username || !password) {
+    if (!formData.username || !formData.email || !formData.password) {
       setError("Please fill in all the fields.");
       return;
     }
-  
+    setError("");
+
     try {
-      const response = await fetch('http://127.0.0.1:8000/login/', {
+      const response = await fetch('http://127.0.0.1:8000/sign-up/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify(formData)
       });
       const data = await response.json();
-      
       if (response.ok) {
-        alert(`Welcome, ${data.username}!`);
-        localStorage.setItem("token", data.token); 
-        localStorage.setItem("isAdmin", data.is_admin); 
-        navigate("/"); 
+        setMessage('User created successfully! Redirecting...');
+        setTimeout(() => navigate('/login'), 2000);
       } else {
-        console.error('Login failed:', data.error);
-        setError(data.error || 'Invalid credentials');
+        setError(data.error);
       }
     } catch (error) {
-      console.error('Error during login request:', error);
       setError('Error: ' + error.message);
     }
   };
-  
 
   return (
     <div className="login-page">
@@ -59,20 +59,24 @@ const Login = () => {
       </header>
 
       <div className="login-container">
-        <h2>Login</h2>
+        <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
           {error && <p className="error-message">{error}</p>}
+          {message && <p className="success-message">{message}</p>}
           <div className="form-group">
-            <label htmlFor="username">Username:</label>
-            <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter your username" />
+            <label>Username:</label>
+            <input type="text" name="username" value={formData.username} onChange={handleChange} placeholder="Enter your username" />
           </div>
           <div className="form-group">
-            <label htmlFor="password">Password:</label>
-            <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password" />
+            <label>Email:</label>
+            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email" />
+          </div>
+          <div className="form-group">
+            <label>Password:</label>
+            <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Enter your password" />
           </div>
           <div className="form-actions">
-            <button type="submit">Login</button>
-            <button type="button" className="forgot-password" onClick={() => alert("You are being redirected to reset your password!")}>Forgot your password?</button>
+            <button type="submit">Sign Up</button>
           </div>
         </form>
       </div>
@@ -80,4 +84,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

@@ -1,13 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import './Header.css'; // Στυλ για το header
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import './Header.css'; // Styles for the header
 import logoImage from './assets/images/images.png';
 import image1 from './assets/images/Biogasanlage_mit_Kompostierung.jpg';
 import image2 from './assets/images/Biogasanlage_mit_Kompostierung.jpg';
 import image3 from './assets/images/Biogasanlage_mit_Kompostierung.jpg';
 import image4 from './assets/images/bi.webp';
+import { handleLogout } from "./utils";
+
 
 const Header = () => {
+  const location = useLocation(); 
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  
+  useEffect(() => {
+    const token = localStorage.getItem("token"); 
+    setLoggedIn(!!token); 
+  }, [location.pathname]); 
+
   return (
     <>
       <header className="header">
@@ -20,10 +32,19 @@ const Header = () => {
         </div>
         <nav className="nav">
           <ul className="nav-links">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">Σχετικά</Link></li>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/contact">Επικοινωνία</Link></li>
+            {location.pathname !== "/" && <li><Link to="/">Home</Link></li>}
+            {isLoggedIn ? (
+            <>
+              <li><Link to="/main">Main Panel</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
+              <li><button onClick={() => handleLogout(navigate)} className="btn-logout">Logout</button></li>
+            </>
+          ) : (
+            <>
+              <li><Link to="/login">Login</Link></li>
+              <li><Link to="/signup">Sign Up</Link></li>
+            </>
+          )}
           </ul>
         </nav>
       </header>
@@ -68,7 +89,7 @@ const Header = () => {
 
       <footer className="footer">
         <div className="footer-content">
-          <p>&copy; 2024 Campus Farm Waste-to-Energy Dashboard. All rights reserved.</p>
+          <p>&copy; 2025 Campus Farm Waste-to-Energy Dashboard. All rights reserved.</p>
           <nav className="footer-nav">
             <Link to="/privacy">Privacy Policy</Link> | 
             <Link to="/terms">Terms of Service</Link> | 

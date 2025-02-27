@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; 
 import logoImage from "./assets/images/images.png";
+import { isLoggedIn, isAdmin, logoutUser, handleLogout } from "./utils";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,8 @@ const ContactUs = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +30,6 @@ const ContactUs = () => {
 
   return (
     <div className="login-page">
-      {/* Header */}
       <header className="header">
         <div className="logo-container">
           <img src={logoImage} alt="Λογότυπο" className="logo-image" />
@@ -38,15 +40,22 @@ const ContactUs = () => {
         </div>
         <nav className="nav">
           <ul className="nav-links">
-            <li><Link to="/">Home</Link></li>
-          
-            <li><Link to="/login">Login</Link></li>
-          
+          {isLoggedIn ? (
+            <>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/main">Main Panel</Link></li>
+              <li><button onClick={() => handleLogout(navigate)} className="btn-logout">Logout</button></li>
+              </>
+          ) : (
+            <>
+              <li><Link to="/login">Login</Link></li>
+              <li><Link to="/signup">Sign Up</Link></li>
+            </>
+          )}
           </ul>
         </nav>
       </header>
 
-      {/* Contact Us Form */}
       <div className="login-container">
         <h2>Contact Us</h2>
         <p>We'd love to hear from you! Please fill out the form below.</p>

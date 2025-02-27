@@ -1,5 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import logoImage from "./assets/images/images.png";
+import { Link, useNavigate } from "react-router-dom";
+import './Header.css'; 
+import { isLoggedIn, isAdmin, logoutUser, handleLogout } from "./utils";
 
 const EducationalTools = () => {
   const navigate = useNavigate();
@@ -7,11 +10,33 @@ const EducationalTools = () => {
   return (
     <div className="educational-tools-page">
       <header className="page-header">
-        <h1>Educational Tools</h1>
-        <p>Learn more about biogas systems and their environmental benefits.</p>
+        <div className="logo-container">
+         <img src={logoImage} alt="Λογότυπο" className="logo-image" />
+          <div className="logo-text">
+           <h1>Educational Tools</h1>
+           <p>Learn more about biogas systems and their environmental benefits.</p>
+          </div>
+        </div>
+        <nav className="nav">
+          <ul className="nav-links">
+            {isLoggedIn ? (
+            <>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/main">Main Panel</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
+              <li><button onClick={() => handleLogout(navigate)} className="btn-logout">Logout</button></li>
+              </>
+          ) : (
+            <>
+              <li><Link to="/login">Login</Link></li>
+              <li><Link to="/signup">Sign Up</Link></li>
+            </>
+          )}
+          </ul>
+        </nav>
       </header>
 
-      <main className="educational-content">
+      <main className="educational-content2">
         <section className="overview">
           <h2>What is a Biogas System?</h2>
           <p>

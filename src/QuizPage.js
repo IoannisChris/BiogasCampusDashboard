@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logoImage from "./assets/images/images.png";
+import { isLoggedIn, handleLogout } from "./utils";
 
 
 const QuizPage = () => {
+  const navigate = useNavigate(); 
     const AppBar = () => {
         return (
           <header className="app-bar">
@@ -16,10 +18,19 @@ const QuizPage = () => {
             </div>
             <nav className="nav">
               <ul className="nav-links">
-                <li><Link to="/">Home</Link></li>
-       
-          
-                <li><Link to="/contact">Επικοινωνία</Link></li>
+                {isLoggedIn ? (
+                <>
+                  <li><Link to="/">Home</Link></li>
+                  <li><Link to="/main">Main Panel</Link></li>
+                  <li><Link to="/contact">Contact Us</Link></li>
+                  <li><button onClick={() => handleLogout(navigate)} className="btn-logout">Logout</button></li>
+                </>
+              ) : (
+                <>
+                  <li><Link to="/login">Login</Link></li>
+                  <li><Link to="/signup">Sign Up</Link></li>
+                </>
+              )}
               </ul>
             </nav>
           </header>
@@ -34,7 +45,7 @@ const QuizPage = () => {
         "A system that converts organic waste into energy",
         "A system that generates electricity from water",
       ],
-      answer: 1, // Index of the correct answer
+      answer: 1, 
     },
     {
       question: "Which gas does biogas help reduce?",
